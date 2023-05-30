@@ -26,4 +26,5 @@ return require('packer').startup(function(use)
 	}
 
 	use("nvim-treesitter/playground")
+	use("tpope/vim-fugitive")
 end)
