@@ -1,2 +1,1 @@
-require('vilelamarcospaulo/init')
-
+require('vilelamarcospaulo')
