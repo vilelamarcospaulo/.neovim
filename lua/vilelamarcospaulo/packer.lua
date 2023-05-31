@@ -25,14 +25,19 @@ return require('packer').startup(function(use)
 		end
 	}
 
-	use("nvim-treesitter/playground")
-	use("tpope/vim-fugitive")
-
-	use {
-		'nvim-lualine/lualine.nvim',
-		requires = { 'nvim-tree/nvim-web-devicons', opt = true }
-	}
+	use('nvim-treesitter/playground')
+	use('tpope/vim-fugitive')
 
 	use 'neovim/nvim-lspconfig'
-	use("github/copilot.vim")
+	use('github/copilot.vim')
+
+
+	-- infobar
+	use {
+		'nvim-lualine/lualine.nvim',
+		requires = { 
+			{'linrongbin16/lsp-progress.nvim'},
+		}
+	}
+	use { "ofseed/lualine-copilot" }
 end)
