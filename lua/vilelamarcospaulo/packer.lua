@@ -25,11 +25,11 @@ return require('packer').startup(function(use)
 		end
 	}
 
-	use('nvim-treesitter/playground')
-	use('tpope/vim-fugitive')
+	use 'nvim-treesitter/playground'
+	use 'tpope/vim-fugitive'
 
 	use 'neovim/nvim-lspconfig'
-	use('github/copilot.vim')
+	use 'github/copilot.vim'
 
 
 	-- infobar
@@ -39,5 +39,6 @@ return require('packer').startup(function(use)
 			{'linrongbin16/lsp-progress.nvim'},
 		}
 	}
-	use { "ofseed/lualine-copilot" }
+	use 'ofseed/lualine-copilot'
+	use "EdenEast/nightfox.nvim"
 end)
