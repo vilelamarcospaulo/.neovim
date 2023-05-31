@@ -8,7 +8,7 @@ require('nightfox').setup({
     dim_inactive = false,    -- Non focused panes set to alternative background
     module_default = true,   -- Default enable value for modules
     colorblind = {
-      enable = false,        -- Enable colorblind support
+      enable = true,        -- Enable colorblind support
       simulate_only = false, -- Only show simulated colorblind colors and not diff shifted
       severity = {
         protan = 0,          -- Severity [0,1] for protan (red)

@@ -24,7 +24,6 @@ require('lualine').setup {
     lualine_x = {
       "copilot",
       'encoding',
-      'fileformat',
       'filetype',
       'require("lsp-progress").progress()',
     },
