@@ -40,5 +40,9 @@ return require('packer').startup(function(use)
 		}
 	}
 	use 'ofseed/lualine-copilot'
-	use "EdenEast/nightfox.nvim"
+	use 'EdenEast/nightfox.nvim'
+
+  use 'hrsh7th/nvim-cmp'
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'L3MON4D3/LuaSnip'
 end)
