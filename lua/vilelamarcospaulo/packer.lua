@@ -35,6 +35,7 @@ return require('packer').startup(function(use)
 
 
   use 'tpope/vim-dispatch'
+  use 'mbbill/undotree'
 
   -- Coding
   -- <<the hackerman>>
