@@ -35,7 +35,7 @@ return require('packer').startup(function(use)
 	-- infobar
 	use {
 		'nvim-lualine/lualine.nvim',
-		requires = { 
+		requires = {
 			{'linrongbin16/lsp-progress.nvim'},
 		}
 	}

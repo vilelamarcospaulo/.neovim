@@ -1,3 +1,5 @@
+-- print('lualine.lua')
+
 require('lualine').setup {
   options = {
     icons_enabled = true,
@@ -43,3 +45,11 @@ require('lualine').setup {
   inactive_winbar = {},
   extensions = {}
 }
+
+-- refresh lualine
+vim.cmd([[
+augroup lualine_augroup
+    autocmd!
+    autocmd User LspProgressStatusUpdated lua require("lualine").refresh()
+augroup END
+]])
