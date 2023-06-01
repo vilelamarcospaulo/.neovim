@@ -9,14 +9,6 @@ return require('packer').startup(function(use)
     requires = { { 'nvim-lua/plenary.nvim' } }
   }
 
-  use({
-    'rose-pine/neovim',
-    as = 'rose-pine',
-    config = function()
-      vim.cmd('colorscheme rose-pine')
-    end
-  })
-
   use {
     'nvim-treesitter/nvim-treesitter',
     run = function()
@@ -24,13 +16,10 @@ return require('packer').startup(function(use)
       ts_update()
     end
   }
-
   use 'nvim-treesitter/playground'
-  use 'tpope/vim-fugitive'
 
-  use 'neovim/nvim-lspconfig'
-  use 'github/copilot.vim'
-
+  use 'tpope/vim-fugitive' -- git easy
+  use 'github/copilot.vim' -- chad autocomplete
 
   -- infobar
   use {
@@ -42,7 +31,19 @@ return require('packer').startup(function(use)
   use 'ofseed/lualine-copilot'
   use 'EdenEast/nightfox.nvim'
 
+  use 'tpope/vim-dispatch'
+
+  -- Coding
+  -- <<the hackerman>>
+  --
+  use 'neovim/nvim-lspconfig'
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-nvim-lsp'
+
+  -- Lua
   use 'L3MON4D3/LuaSnip'
+
+  -- Clj
+  use 'Olical/conjure'
+  use 'clojure-vim/vim-jack-in'
 end)
