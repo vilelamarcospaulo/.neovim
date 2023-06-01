@@ -18,7 +18,11 @@ return require('packer').startup(function(use)
   }
   use 'nvim-treesitter/playground'
 
-  use 'tpope/vim-fugitive' -- git easy
+
+  -- git handler
+  use 'tpope/vim-fugitive'
+  use 'tpope/vim-rhubarb'
+
   use 'github/copilot.vim' -- chad autocomplete
 
   -- infobar
