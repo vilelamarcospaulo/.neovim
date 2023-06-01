@@ -29,7 +29,10 @@ return require('packer').startup(function(use)
     }
   }
   use 'ofseed/lualine-copilot'
+
+  -- themes
   use 'EdenEast/nightfox.nvim'
+
 
   use 'tpope/vim-dispatch'
 
