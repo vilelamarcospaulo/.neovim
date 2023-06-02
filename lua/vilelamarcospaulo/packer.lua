@@ -10,6 +10,9 @@ return require('packer').startup(function(use)
   }
 
   use 'ms-jpq/chadtree'
+  use 'glepnir/dashboard-nvim'
+  use 'kyazdani42/nvim-web-devicons'
+  use 'ryanoasis/vim-devicons'
 
   use {
     'nvim-treesitter/nvim-treesitter',

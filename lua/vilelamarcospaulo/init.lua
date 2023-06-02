@@ -1,4 +1,4 @@
-print("It's not too much, but it's honest work")
+print("It ain’t much, but it’s honest work!")
 
 require('vilelamarcospaulo.remap')
 
