@@ -9,12 +9,7 @@ return require('packer').startup(function(use)
     requires = { { 'nvim-lua/plenary.nvim' } }
   }
 
-  use {
-    'kyazdani42/nvim-tree.lua',
-    requires = {
-      'kyazdani42/nvim-web-devicons', -- optional, for file icons
-    },
-  }
+  use 'ms-jpq/chadtree'
 
   use {
     'nvim-treesitter/nvim-treesitter',

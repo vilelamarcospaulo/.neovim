@@ -5,7 +5,7 @@ require('vilelamarcospaulo.remap')
 vim.o.clipboard = 'unnamedplus'
 
 vim.wo.number = true
--- vim.wo.relativenumber = true
+vim.wo.relativenumber = true
 
 vim.o.expandtab = true
 vim.o.smartindent = true
