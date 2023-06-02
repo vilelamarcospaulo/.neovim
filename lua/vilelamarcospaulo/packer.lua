@@ -36,7 +36,7 @@ return require('packer').startup(function(use)
 
   -- themes
   use 'EdenEast/nightfox.nvim'
-
+  use 'catppuccin/nvim'
 
   use 'tpope/vim-dispatch'
   use 'mbbill/undotree'
