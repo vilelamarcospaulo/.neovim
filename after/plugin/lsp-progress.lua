@@ -86,7 +86,7 @@ require('lsp-progress').setup({
   -- @return                A nil|string|table value. The returned value will be
   --                        returned from `progress` API.
   format = function(client_messages)
-    local sign = " LSP"   -- nf-fa-gear \uf013
+    local sign = " LSP" -- nf-fa-gear \uf013
     return #client_messages > 0
         and (sign .. " " .. table.concat(client_messages, " "))
         or sign
