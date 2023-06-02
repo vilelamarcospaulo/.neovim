@@ -10,14 +10,21 @@ return require('packer').startup(function(use)
   }
 
   use {
+    'kyazdani42/nvim-tree.lua',
+    requires = {
+      'kyazdani42/nvim-web-devicons', -- optional, for file icons
+    },
+  }
+
+  use {
     'nvim-treesitter/nvim-treesitter',
     run = function()
       local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
       ts_update()
     end
   }
-  use 'nvim-treesitter/playground'
 
+  use 'nvim-treesitter/playground'
 
   -- git handler
   use 'tpope/vim-fugitive'
