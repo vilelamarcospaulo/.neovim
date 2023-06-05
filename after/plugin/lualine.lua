@@ -1,18 +1,17 @@
 -- print('lualine.lua')
-
 require('lualine').setup {
   options = {
     icons_enabled = false,
     theme = 'auto',
-    component_separators = { left = "", right = "" },
-    section_separators = { left = "", right = "" },
+    component_separators = { '' },
+    section_separators = { '' },
     disabled_filetypes = {
       statusline = {},
       winbar = {},
     },
     ignore_focus = {},
     always_divide_middle = true,
-    globalstatus = false,
+    globalstatus = true,
     refresh = {
       statusline = 1000,
       tabline = 1000,
@@ -22,9 +21,11 @@ require('lualine').setup {
   sections = {
     lualine_a = { 'mode' },
     lualine_b = { 'branch', 'diff', 'diagnostics' },
-    lualine_c = { 'filename' },
+    lualine_c = {
+      'copilot',
+      { 'filename', file_status = true, path = 1 }
+    },
     lualine_x = {
-      "copilot",
       'encoding',
       'filetype',
       'require("lsp-progress").progress()',
@@ -41,8 +42,15 @@ require('lualine').setup {
     lualine_z = {}
   },
   tabline = {},
-  winbar = {},
-  inactive_winbar = {},
+  winbar = {
+    lualine_a = { { 'filename', file_status = true, path = 0 } },
+    lualine_b = {},
+    lualine_c = {},
+    lualine_x = {},
+    lualine_y = {},
+    lualine_z = {}
+  },
+  inactive_winbar = { lualine_a = { { 'filename', file_status = true, path = 0 } } },
   extensions = {}
 }
 

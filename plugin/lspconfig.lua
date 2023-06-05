@@ -61,8 +61,7 @@ local on_attach = function(client, bufnr)
 
   buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
   buf_set_keymap('n', 'ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-  buf_set_keymap('n', 'gR', '<cmd>Telescope lsp_references<CR>', opts)
-
+  buf_set_keymap('n', 'gR', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
   buf_set_keymap('n', 'ds', '<cmd>Telescope lsp_document_symbols<CR>', opts)
 
   vim.api.nvim_create_autocmd("CursorHold", {
