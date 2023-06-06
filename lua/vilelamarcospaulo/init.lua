@@ -6,6 +6,8 @@ vim.o.clipboard = 'unnamedplus'
 
 vim.wo.number = true
 vim.wo.relativenumber = true
+vim.wo.numberwidth = 5
+vim.wo.signcolumn = "yes:2"
 
 vim.o.expandtab = true
 vim.o.smartindent = true

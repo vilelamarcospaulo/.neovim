@@ -21,13 +21,13 @@ return require('packer').startup(function(use)
       ts_update()
     end
   }
-
   use 'nvim-treesitter/playground'
+  use 'mg979/vim-visual-multi'
 
   -- git handler
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rhubarb'
-
+  use 'airblade/vim-gitgutter'
   use 'github/copilot.vim' -- chad autocomplete
 
   -- infobar
