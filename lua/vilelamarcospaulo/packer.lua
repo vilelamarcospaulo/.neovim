@@ -37,6 +37,7 @@ return require('packer').startup(function(use)
       { 'linrongbin16/lsp-progress.nvim' },
     }
   }
+  use { 'alvarosevilla95/luatab.nvim', requires = 'kyazdani42/nvim-web-devicons' }
   use 'ofseed/lualine-copilot'
 
   -- themes
@@ -45,6 +46,7 @@ return require('packer').startup(function(use)
 
   use 'tpope/vim-dispatch'
   use 'mbbill/undotree'
+  use 'doums/darcula'
 
   -- Coding
   -- <<the hackerman>>
