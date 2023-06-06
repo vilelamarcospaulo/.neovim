@@ -44,10 +44,10 @@ return require('packer').startup(function(use)
   use 'EdenEast/nightfox.nvim'
   use 'catppuccin/nvim'
 
+  use { "briones-gabriel/darcula-solid.nvim", requires = "rktjmp/lush.nvim" }
+
   use 'tpope/vim-dispatch'
   use 'mbbill/undotree'
-  use 'doums/darcula'
-
   -- Coding
   -- <<the hackerman>>
   --

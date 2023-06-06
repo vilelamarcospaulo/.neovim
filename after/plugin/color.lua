@@ -61,5 +61,6 @@ require("catppuccin").setup({
   },
 })
 
--- setup must be called before loading
-vim.cmd.colorscheme "darcula"
+
+vim.cmd 'colorscheme darcula-solid'
+vim.cmd 'set termguicolors'

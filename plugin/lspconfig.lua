@@ -6,6 +6,8 @@ cmp.setup({
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-.>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.abort(),
+    ['<C-k>'] = cmp.mapping.select_prev_item(),
+    ['<C-j>'] = cmp.mapping.select_next_item(),
     ['<CR>'] = cmp.mapping.confirm({ select = true }),
   }),
   snippet = {
@@ -19,6 +21,14 @@ cmp.setup({
   }, {
     { name = 'buffer' },
   }),
+})
+
+cmp.setup.filetype('gitcommit', {
+  sources = cmp.config.sources({
+    { name = 'git' }, -- You can specify the `git` source if [you were installed it](https://github.com/petertriho/cmp-git).
+  }, {
+    { name = 'buffer' },
+  })
 })
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
