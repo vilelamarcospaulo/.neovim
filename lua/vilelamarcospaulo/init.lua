@@ -8,6 +8,7 @@ vim.wo.number = true
 vim.wo.relativenumber = true
 vim.wo.numberwidth = 5
 vim.wo.signcolumn = "yes:2"
+vim.wo.cursorline = true
 
 vim.o.expandtab = true
 vim.o.smartindent = true

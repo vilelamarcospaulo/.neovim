@@ -2,7 +2,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = ";"
 
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
-vim.keymap.set("n", "<leader>e", "<cmd>CHADopen<CR>")
+vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<CR>")
 
 vim.keymap.set("n", "<localleader>pv", vim.cmd.Ex)
 

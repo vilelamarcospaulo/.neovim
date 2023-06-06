@@ -9,10 +9,18 @@ return require('packer').startup(function(use)
     requires = { { 'nvim-lua/plenary.nvim' } }
   }
 
-  use 'ms-jpq/chadtree'
   use 'glepnir/dashboard-nvim'
   use 'kyazdani42/nvim-web-devicons'
   use 'ryanoasis/vim-devicons'
+  use {
+    'nvim-tree/nvim-tree.lua',
+    requires = {
+      'nvim-tree/nvim-web-devicons', -- optional
+    },
+    config = function()
+      require("nvim-tree").setup {}
+    end
+  }
 
   use {
     'nvim-treesitter/nvim-treesitter',

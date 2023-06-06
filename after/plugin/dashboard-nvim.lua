@@ -51,7 +51,7 @@ require('dashboard').setup {
         desc_hl = 'String',
         desc = 'File browser                     ',
         keymap = "SPC e",
-        action = "CHADopen",
+        action = "NvimTreeToggle",
         key = 'e',
         key_hl = 'Number'
       },

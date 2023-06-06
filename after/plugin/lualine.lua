@@ -11,7 +11,7 @@ require('lualine').setup {
     },
     ignore_focus = {},
     always_divide_middle = true,
-    globalstatus = true,
+    globalstatus = false,
     refresh = {
       statusline = 1000,
       tabline = 1000,
@@ -36,8 +36,8 @@ require('lualine').setup {
   inactive_sections = {
     lualine_a = {},
     lualine_b = {},
-    lualine_c = { 'filename' },
-    lualine_x = { 'location' },
+    lualine_c = { { 'filename', file_status = true, path = 1 } },
+    lualine_x = {},
     lualine_y = {},
     lualine_z = {}
   },
@@ -50,7 +50,7 @@ require('lualine').setup {
     lualine_y = {},
     lualine_z = {}
   },
-  inactive_winbar = { lualine_a = { { 'filename', file_status = true, path = 0 } } },
+  inactive_winbar = { lualine_a = {} },
   extensions = {}
 }
 
