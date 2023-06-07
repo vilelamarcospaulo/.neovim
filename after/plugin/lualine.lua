@@ -1,4 +1,3 @@
--- print('lualine.lua')
 require('lualine').setup {
   options = {
     icons_enabled = false,
@@ -26,9 +25,9 @@ require('lualine').setup {
       { 'filename', file_status = true, path = 1 }
     },
     lualine_x = {
+      "require('lsp-status').status()",
       'encoding',
       'filetype',
-      'require("lsp-progress").progress()',
     },
     lualine_y = { 'progress' },
     lualine_z = { 'location' }

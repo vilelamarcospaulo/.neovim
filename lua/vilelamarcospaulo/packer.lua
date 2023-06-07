@@ -39,13 +39,8 @@ return require('packer').startup(function(use)
   use 'github/copilot.vim' -- chad autocomplete
 
   -- infobar
-  use {
-    'nvim-lualine/lualine.nvim',
-    requires = {
-      { 'linrongbin16/lsp-progress.nvim' },
-    }
-  }
-  use { 'alvarosevilla95/luatab.nvim', requires = 'kyazdani42/nvim-web-devicons' }
+  use 'nvim-lualine/lualine.nvim'
+  use 'nvim-lua/lsp-status.nvim'
   use 'ofseed/lualine-copilot'
 
   -- themes

@@ -1,3 +1,14 @@
+local lsp_status = require('lsp-status')
+lsp_status.config({
+  indicator_errors = 'E',
+  indicator_warnings = 'W',
+  indicator_info = 'i',
+  indicator_hint = '?',
+  indicator_ok = '',
+  status_symbol = 'LSP',
+})
+lsp_status.register_progress()
+
 local cmp = require("cmp")
 
 cmp.setup({
@@ -32,6 +43,7 @@ cmp.setup.filetype('gitcommit', {
 })
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
+capabilities = vim.tbl_extend('keep', capabilities or {}, lsp_status.capabilities)
 
 local status, nvim_lsp = pcall(require, "lspconfig")
 if (not status) then return end
@@ -51,6 +63,7 @@ end
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
+  lsp_status.on_attach(client)
   enable_format_on_save(client, bufnr)
 
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
