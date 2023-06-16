@@ -57,6 +57,13 @@ return require('packer').startup(function(use)
   use 'neovim/nvim-lspconfig'
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-nvim-lsp'
+  use {
+    'j-hui/fidget.nvim',
+    tag = 'legacy',
+    config = function()
+      require('fidget').setup {}
+    end
+  }
 
   use {
     'numToStr/Comment.nvim',

@@ -9,8 +9,9 @@ lsp_status.config({
 })
 lsp_status.register_progress()
 
-local cmp = require("cmp")
+require('fidget').setup {}
 
+local cmp = require("cmp")
 cmp.setup({
   mapping = cmp.mapping.preset.insert({
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
