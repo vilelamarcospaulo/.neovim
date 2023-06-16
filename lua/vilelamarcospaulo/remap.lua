@@ -16,7 +16,7 @@ vim.keymap.set("n", "<C-4>", "<cmd>wincmd 4 w<CR>")
 vim.keymap.set("n", "<C-5>", "<cmd>wincmd 5 w<CR>")
 vim.keymap.set("n", "<C-6>", "<cmd>wincmd 6 w<CR>")
 
-vim.keymap.set("n", "bf", "<cmd>Telescope buffers<CR>")
+vim.keymap.set("n", "<leader>bf", "<cmd>Telescope buffers<CR>")
 
 vim.keymap.set("n", "=", [[<cmd>vertical resize +5<cr>]])   -- make the window biger vertically
 vim.keymap.set("n", "-", [[<cmd>vertical resize -5<cr>]])   -- make the window smaller vertically
