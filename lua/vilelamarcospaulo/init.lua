@@ -2,8 +2,7 @@ print("It ain’t much, but it’s honest work!")
 
 require('vilelamarcospaulo.remap')
 
-vim.o.clipboard = 'unnamedplus'
-
+vim.o.title = true
 vim.wo.number = true
 vim.wo.relativenumber = true
 vim.wo.numberwidth = 5
@@ -11,6 +10,7 @@ vim.wo.signcolumn = "yes:2"
 vim.wo.cursorline = true
 
 vim.o.expandtab = true
+vim.o.clipboard = 'unnamedplus'
 vim.o.smartindent = true
 vim.o.tabstop = 2
 vim.o.shiftwidth = 2
