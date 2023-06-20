@@ -1,5 +1,13 @@
 vim.cmd [[packadd packer.nvim]]
 
+-- Autocommand that reloads neovim whenever you save the plugins.lua file
+vim.cmd [[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost packer.lua source <afile> | PackerSync
+  augroup end
+]]
+
 return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
@@ -51,9 +59,9 @@ return require('packer').startup(function(use)
 
   use 'tpope/vim-dispatch'
   use 'mbbill/undotree'
+
   -- Coding
   -- <<the hackerman>>
-  --
   use 'neovim/nvim-lspconfig'
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-nvim-lsp'
@@ -75,7 +83,8 @@ return require('packer').startup(function(use)
   -- Lua
   use 'L3MON4D3/LuaSnip'
 
-  -- Clj
+  -- Clojure
   use 'Olical/conjure'
   use 'clojure-vim/vim-jack-in'
+  use { 'm00qek/baleia.nvim', tag = 'v1.3.0' }
 end)
