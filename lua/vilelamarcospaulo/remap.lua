@@ -3,8 +3,7 @@ vim.g.maplocalleader = ";"
 
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<CR>")
-
-vim.keymap.set("n", "<localleader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<localleader>e", vim.cmd.Ex)
 
 vim.keymap.set("n", "<C-\\>", "<cmd>vsplit<CR>")
 vim.keymap.set("n", "<C-|>", "<cmd>split<CR>")

@@ -40,7 +40,7 @@ require('dashboard').setup {
         icon_hl = 'Title',
         desc = 'Find Files                       ',
         desc_hl = 'String',
-        keymap = 'SPC p p',
+        keymap = 'SPC f f',
         action = "Telescope find_files find_command=rg,--hidden,--files",
         key = 'f',
         key_hl = 'Number'
