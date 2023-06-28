@@ -54,7 +54,6 @@ return require('packer').startup(function(use)
   -- themes
   use 'EdenEast/nightfox.nvim'
   use 'catppuccin/nvim'
-
   use { "briones-gabriel/darcula-solid.nvim", requires = "rktjmp/lush.nvim" }
 
   use 'tpope/vim-dispatch'

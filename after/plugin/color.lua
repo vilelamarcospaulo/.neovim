@@ -17,7 +17,7 @@ require('nightfox').setup({
 })
 
 require("catppuccin").setup({
-  flavour = "macchiato", -- latte, frappe, macchiato, mocha
+  flavour = "mocha", -- latte, frappe, macchiato, mocha
   background = {
     -- :h background
     light = "latte",
@@ -62,5 +62,5 @@ require("catppuccin").setup({
 })
 
 
-vim.cmd 'colorscheme darcula-solid'
+vim.cmd 'colorscheme terafox'
 vim.cmd 'set termguicolors'
