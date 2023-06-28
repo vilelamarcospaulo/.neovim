@@ -5,6 +5,9 @@ vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<CR>")
 vim.keymap.set("n", "<localleader>e", vim.cmd.Ex)
 
+-- formatter
+vim.keymap.set("n", "<localleader>jf", "<cmd>%!jq .<CR>")
+
 vim.keymap.set("n", "<C-\\>", "<cmd>vsplit<CR>")
 vim.keymap.set("n", "<C-|>", "<cmd>split<CR>")
 
