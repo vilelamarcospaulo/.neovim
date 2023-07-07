@@ -29,7 +29,6 @@ return require('packer').startup(function(use)
       require("nvim-tree").setup {}
     end
   }
-
   use {
     'nvim-treesitter/nvim-treesitter',
     run = function()
@@ -38,7 +37,6 @@ return require('packer').startup(function(use)
     end
   }
   use 'nvim-treesitter/playground'
-  use 'mg979/vim-visual-multi'
 
   -- git handler
   use 'tpope/vim-fugitive'
@@ -56,8 +54,11 @@ return require('packer').startup(function(use)
   use 'catppuccin/nvim'
   use { "briones-gabriel/darcula-solid.nvim", requires = "rktjmp/lush.nvim" }
 
+  -- auxiliar tools
   use 'tpope/vim-dispatch'
   use 'mbbill/undotree'
+  use 'mg979/vim-visual-multi'
+  use 'chentoast/marks.nvim'
 
   -- Coding
   -- <<the hackerman>>
