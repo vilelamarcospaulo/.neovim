@@ -53,6 +53,7 @@ return require('packer').startup(function(use)
   use 'EdenEast/nightfox.nvim'
   use 'catppuccin/nvim'
   use { "briones-gabriel/darcula-solid.nvim", requires = "rktjmp/lush.nvim" }
+  use({ 'rose-pine/neovim', as = 'rose-pine' })
 
   -- auxiliar tools
   use 'tpope/vim-dispatch'
