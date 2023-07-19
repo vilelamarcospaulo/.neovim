@@ -25,7 +25,7 @@ vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
 
 vim.opt.colorcolumn = "80"
-vim.opt.scrolloff = 10
+vim.opt.scrolloff = 5
 
 vim.opt.foldlevelstart = 20
 vim.opt.foldmethod = "expr"

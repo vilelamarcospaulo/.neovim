@@ -40,9 +40,27 @@ capabilities = vim.tbl_extend('keep', capabilities or {}, lsp_status.capabilitie
 
 local lspconfig = require('lspconfig')
 lspconfig.pyright.setup {}
+
 lspconfig.tsserver.setup {
   cmd = { "typescript-language-server", "--stdio" },
   capabilities = capabilities
+}
+
+lspconfig.gopls.setup {
+  cmd = { "gopls", "serve" },
+  capabilities = capabilities,
+  settings = {
+    gopls = {
+      analyses = {
+        unusedparams = true,
+      },
+      staticcheck = true,
+    },
+  },
+}
+
+lspconfig.rust_analyzer.setup {
+  capabilities = capabilities,
 }
 
 lspconfig.lua_ls.setup {
@@ -101,4 +119,14 @@ vim.api.nvim_create_autocmd('BufWritePre', {
   callback = function()
     vim.lsp.buf.format { async = false }
   end,
+})
+
+vim.api.nvim_create_autocmd('BufWritePre', {
+  pattern = '*.go',
+  callback = function()
+    vim.lsp.buf.code_action({
+      apply = true,
+      context = { only = { 'source.organizeImports' } },
+    })
+  end
 })
