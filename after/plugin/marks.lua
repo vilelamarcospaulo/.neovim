@@ -26,7 +26,9 @@ require 'marks'.setup {
   -- default virt_text is "".
   bookmark_0 = {
   },
-  mappings = {}
+  mappings = {
+    preview = "<leader>pm",
+  }
 }
 
 vim.keymap.set("n", "<leader>lm", "<cmd>MarksListAll<CR>")
