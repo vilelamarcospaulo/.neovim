@@ -8,9 +8,6 @@ vim.keymap.set("n", "<localleader>e", vim.cmd.Ex)
 -- formatter
 vim.keymap.set("n", "<localleader>jf", "<cmd>%!jq .<CR>")
 
-vim.keymap.set("n", "<C-\\>", "<cmd>vsplit<CR>")
-vim.keymap.set("n", "<C-|>", "<cmd>split<CR>")
-
 vim.keymap.set("n", "<C-1>", "<cmd>wincmd 1 w<CR>")
 vim.keymap.set("n", "<C-2>", "<cmd>wincmd 2 w<CR>")
 vim.keymap.set("n", "<C-3>", "<cmd>wincmd 3 w<CR>")
