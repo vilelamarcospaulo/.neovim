@@ -29,4 +29,4 @@ require 'marks'.setup {
   mappings = {}
 }
 
-vim.keymap.set("n", "lm", "<cmd>MarksListAll<CR>")
+vim.keymap.set("n", "<leader>lm", "<cmd>MarksListAll<CR>")
