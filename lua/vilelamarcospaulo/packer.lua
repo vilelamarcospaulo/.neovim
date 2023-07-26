@@ -53,6 +53,8 @@ return require('packer').startup(function(use)
   -- themes
   use 'EdenEast/nightfox.nvim'
   use 'catppuccin/nvim'
+  use 'navarasu/onedark.nvim'
+  use 'lunacookies/vim-substrata'
   use { "briones-gabriel/darcula-solid.nvim", requires = "rktjmp/lush.nvim" }
   use({ 'rose-pine/neovim', as = 'rose-pine' })
 
