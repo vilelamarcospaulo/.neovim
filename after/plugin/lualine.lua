@@ -1,6 +1,6 @@
 require('lualine').setup {
   options = {
-    icons_enabled = false,
+    icons_enabled = true,
     theme = 'auto',
     component_separators = { '' },
     section_separators = { '' },
@@ -37,14 +37,17 @@ require('lualine').setup {
     lualine_b = {},
     lualine_c = { { 'filename', file_status = true, path = 1 } },
     lualine_x = {},
-    lualine_y = {},
+    lualine_y = { 'filetype' },
     lualine_z = {}
   },
   tabline = {},
   winbar = {
-    lualine_a = { { 'filename', file_status = true, path = 0 } },
-    lualine_b = {},
-    lualine_c = {},
+    lualine_a = {},
+    lualine_b = {
+      { 'filename', file_status = true, path = 0 }
+    },
+    lualine_c = {
+    },
     lualine_x = {},
     lualine_y = {},
     lualine_z = {}
