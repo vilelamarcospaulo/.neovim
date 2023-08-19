@@ -26,7 +26,7 @@ return require('packer').startup(function(use)
       'nvim-tree/nvim-web-devicons', -- optional
     },
     config = function()
-      require("nvim-tree").setup {}
+      require('nvim-tree').setup {}
     end
   }
   use {
@@ -39,10 +39,12 @@ return require('packer').startup(function(use)
   }
   use 'nvim-treesitter/playground'
 
-  -- git handler
+  -- git handler{
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rhubarb'
+  use 'braxtons12/blame_line.nvim'
   use 'airblade/vim-gitgutter'
+
   use 'github/copilot.vim' -- chad autocomplete
 
   -- infobar
@@ -55,7 +57,7 @@ return require('packer').startup(function(use)
   use 'catppuccin/nvim'
   use 'navarasu/onedark.nvim'
   use 'lunacookies/vim-substrata'
-  use { "briones-gabriel/darcula-solid.nvim", requires = "rktjmp/lush.nvim" }
+  use { 'briones-gabriel/darcula-solid.nvim', requires = 'rktjmp/lush.nvim' }
   use({ 'rose-pine/neovim', as = 'rose-pine' })
 
   -- auxiliar tools
