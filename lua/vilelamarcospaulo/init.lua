@@ -1,8 +1,9 @@
 print("It ain’t much, but it’s honest work!")
 
 require('vilelamarcospaulo.remap')
-require('vilelamarcospaulo.clojure')
 require('vilelamarcospaulo.lazy')
+require('vilelamarcospaulo.clojure')
+require('vilelamarcospaulo.themes')
 
 vim.o.title = true
 vim.wo.number = true
