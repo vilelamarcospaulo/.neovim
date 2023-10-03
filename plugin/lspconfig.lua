@@ -41,9 +41,12 @@ capabilities = vim.tbl_extend('keep', capabilities or {}, lsp_status.capabilitie
 local lspconfig = require('lspconfig')
 lspconfig.pyright.setup {}
 
-lspconfig.tsserver.setup {
-  cmd = { "typescript-language-server", "--stdio" },
-  capabilities = capabilities
+lspconfig.clojure_lsp.setup {
+  capabilities = capabilities,
+}
+
+lspconfig.dartls.setup {
+  capabilities = capabilities,
 }
 
 lspconfig.gopls.setup {
@@ -57,10 +60,6 @@ lspconfig.gopls.setup {
       staticcheck = true,
     },
   },
-}
-
-lspconfig.rust_analyzer.setup {
-  capabilities = capabilities,
 }
 
 lspconfig.lua_ls.setup {
@@ -80,8 +79,17 @@ lspconfig.lua_ls.setup {
   }
 }
 
-lspconfig.clojure_lsp.setup {
+lspconfig.pyright.setup {
   capabilities = capabilities,
+}
+
+lspconfig.rust_analyzer.setup {
+  capabilities = capabilities,
+}
+
+lspconfig.tsserver.setup {
+  cmd = { "typescript-language-server", "--stdio" },
+  capabilities = capabilities
 }
 
 -- Global mappings.
