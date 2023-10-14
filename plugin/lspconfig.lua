@@ -39,8 +39,6 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 capabilities = vim.tbl_extend('keep', capabilities or {}, lsp_status.capabilities)
 
 local lspconfig = require('lspconfig')
-lspconfig.pyright.setup {}
-
 lspconfig.clojure_lsp.setup {
   capabilities = capabilities,
 }

@@ -38,3 +38,15 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
   pattern = { "*" },
   command = "normal zx",
 })
+
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+  group = 'filetypedetect',
+  pattern = '*.json.base',
+  callback = function()
+    vim.api.nvim_cmd({
+      cmd = 'setf',
+      args = { 'json' }
+    }, {})
+  end
+
+})
