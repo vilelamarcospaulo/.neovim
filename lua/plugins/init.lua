@@ -23,17 +23,6 @@ return {
 
   -- Coding
   -- <<the hackerman>>
-  'neovim/nvim-lspconfig',
-  'hrsh7th/nvim-cmp',
-  'hrsh7th/cmp-nvim-lsp',
-  {
-    'j-hui/fidget.nvim',
-    tag = 'legacy',
-    config = function()
-      require('fidget').setup {}
-    end
-  },
-
   {
     'numToStr/Comment.nvim',
     config = function()

@@ -5,6 +5,17 @@ return {
     'ofseed/lualine-copilot',
   },
   config = function()
+    local lsp_status = require('lsp-status')
+    lsp_status.config({
+      indicator_errors = ' E',
+      indicator_warnings = ' W',
+      indicator_info = ' i',
+      indicator_hint = ' H',
+      indicator_ok = 'Ok',
+      status_symbol = '  ',
+    })
+    lsp_status.register_progress()
+
     require('lualine').setup {
       options = {
         icons_enabled = true,
