@@ -33,13 +33,23 @@ return {
         },
         center = {
           {
+            icon = "  ",
+            icon_hl = 'Title',
+            desc_hl = 'String',
+            desc = 'File browser                     ',
+            keymap = "SPC e",
+            action = "NvimTreeToggle",
+            key = 'e',
+            key_hl = 'Number'
+          },
+          {
             icon = "  ",
             icon_hl = 'Title',
             desc = 'Recent Files                     ',
             desc_hl = 'String',
             keymap = 'SPC f r',
             action = "Telescope oldfiles",
-            key = 'r',
+            key = 'o',
             key_hl = 'Number'
           },
           {
@@ -50,16 +60,6 @@ return {
             keymap = 'SPC f f',
             action = "Telescope find_files find_command=rg,--hidden,--files",
             key = 'f',
-            key_hl = 'Number'
-          },
-          {
-            icon = "  ",
-            icon_hl = 'Title',
-            desc_hl = 'String',
-            desc = 'File browser                     ',
-            keymap = "SPC e",
-            action = "NvimTreeToggle",
-            key = 'e',
             key_hl = 'Number'
           },
           {
