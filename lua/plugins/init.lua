@@ -15,6 +15,7 @@ return {
     'briones-gabriel/darcula-solid.nvim',
     dependencies = 'rktjmp/lush.nvim'
   },
+  { "bluz71/vim-nightfly-colors", name = "nightfly", lazy = false, priority = 1000 },
 
   -- auxiliar tools
   'tpope/vim-dispatch',
@@ -29,7 +30,4 @@ return {
       require('Comment').setup()
     end
   },
-
-  -- Lua
-  'L3MON4D3/LuaSnip',
 }
