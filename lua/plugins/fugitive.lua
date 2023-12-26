@@ -1,25 +1,23 @@
 return {
-  'tpope/vim-fugitive',
-  dependencies = {
-    'tpope/vim-rhubarb',
-    'airblade/vim-gitgutter',
-    'braxtons12/blame_line.nvim',
+  {
+    'tpope/vim-fugitive',
+    dependencies = {
+      'tpope/vim-rhubarb',
+      'airblade/vim-gitgutter',
+    },
+    config = function()
+      vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
+      vim.keymap.set("n", "<leader>gh", "<cmd>:0Gclog<CR>")
+    end
   },
-  config = function()
-    vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
-    vim.keymap.set("n", "<leader>gb", vim.cmd.BlameLineToggle)
-    vim.keymap.set("n", "<leader>gh", "<cmd>:0Gclog<CR>")
+  {
+    'f-person/git-blame.nvim',
+    config = function()
+      require 'gitblame'.setup {
+        enabled = false,
+      }
 
-    local blame = require("blame_line")
-    blame.setup {
-      prefix = " ",
-      template = "<author> • <author-time> • <summary> <commit-short>",
-      date = {
-        relative = false,
-        format = "%m-%d-%y",
-      },
-    }
-
-    blame.disable()
-  end
+      vim.keymap.set("n", "<leader>gb", vim.cmd.GitBlameToggle)
+    end
+  }
 }
