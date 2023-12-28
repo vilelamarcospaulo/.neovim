@@ -7,7 +7,7 @@ require('vilelamarcospaulo.themes')
 
 vim.o.title = true
 vim.wo.number = true
--- vim.wo.relativenumber = true
+vim.wo.relativenumber = true
 vim.wo.numberwidth = 5
 vim.wo.signcolumn = "yes:2"
 vim.wo.cursorline = true
