@@ -2,87 +2,27 @@ return {
   'glepnir/dashboard-nvim',
   config = function()
     require('dashboard').setup {
-      theme = "doom",
+      theme = 'hyper',
       config = {
-        header =
-        {
+        header = {
+          '  Project browse   [SPC e]',
           '',
+          '  Find Files     [SPC f f]',
           '',
+          '  Recent Files   [SPC f r]',
           '',
+          '  Git            [SPC g s]',
           '',
-          '',
-          '',
-          '',
-          '',
-          '',
-          '',
-          '',
-          '',
-          '',
-          '',
-          '',
-          '',
-          '',
-          '',
-          '',
-          '',
-          '',
-          '',
-          '',
-          '',
+          '  Theme change   [SPC h t]',
+          ' ',
+          ' ',
         },
-        center = {
-          {
-            icon = "  ",
-            icon_hl = 'Title',
-            desc_hl = 'String',
-            desc = 'File browser                     ',
-            keymap = "SPC e",
-            action = "NvimTreeToggle",
-            key = 'e',
-            key_hl = 'Number'
-          },
-          {
-            icon = "  ",
-            icon_hl = 'Title',
-            desc = 'Recent Files                     ',
-            desc_hl = 'String',
-            keymap = 'SPC f r',
-            action = "Telescope oldfiles",
-            key = 'o',
-            key_hl = 'Number'
-          },
-          {
-            icon = "  ",
-            icon_hl = 'Title',
-            desc = 'Find Files                       ',
-            desc_hl = 'String',
-            keymap = 'SPC f f',
-            action = "Telescope find_files find_command=rg,--hidden,--files",
-            key = 'f',
-            key_hl = 'Number'
-          },
-          {
-            icon = "  ",
-            icon_hl = 'Title',
-            desc_hl = 'String',
-            desc = 'Git                             ',
-            keymap = "SPC g s",
-            action = "Git",
-            key = 'g',
-            key_hl = 'Number'
-          },
-          {
-            icon = " ",
-            icon_hl = 'Title',
-            desc = 'Theme changer                    ',
-            desc_hl = 'String',
-            keymap = "SPC h t",
-            action = "Telescope colorscheme",
-            key = 'c',
-            key_hl = 'Number'
-          },
+        packages = { enable = false }, -- show how many plugins neovim loaded
+        project = { enable = false },
+        shortcut = {
+          { desc = '󰊳 Update', group = '@property', action = 'Lazy update', key = 'u' },
         },
+        mru = { limit = 5, icon = ' ', label = 'Recent', cwd_only = false },
         footer = {
           '',
           '',
