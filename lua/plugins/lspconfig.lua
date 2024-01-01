@@ -90,6 +90,10 @@ return {
         }
       }
 
+      lspconfig.ocamllsp.setup {
+        capabilities = capabilities,
+      }
+
       lspconfig.pyright.setup {
         capabilities = capabilities,
       }
