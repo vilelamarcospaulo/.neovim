@@ -12,6 +12,16 @@ return {
 
     vim.cmd("let g:baleia = luaeval(\"require('baleia').setup { line_starts_at = 3 }\")")
     vim.cmd("command! BaleiaColorize call g:baleia.once(bufnr('%'))")
-    vim.cmd("autocmd BufWinEnter conjure-log-* call g:baleia.automatically(bufnr('%'))")
+    vim.cmd("command! BaleiaHook call g:baleia.automatically(bufnr('%'))")
+
+    vim.api.nvim_create_autocmd("BufNewFile", {
+      pattern = "conjure-log-*",
+      command = "lua vim.diagnostic.disable(0)"
+    })
+
+    vim.api.nvim_create_autocmd("BufNewFile", {
+      pattern = "conjure-log-*",
+      command = "BaleiaHook"
+    })
   end
 }
