@@ -11,8 +11,8 @@ return {
       indicator_warnings = ' W',
       indicator_info = ' i',
       indicator_hint = ' H',
-      indicator_ok = 'Ok',
-      status_symbol = '  ',
+      indicator_ok = 'LSP',
+      status_symbol = ' ',
     })
     lsp_status.register_progress()
 
@@ -53,24 +53,31 @@ return {
       inactive_sections = {
         lualine_a = {},
         lualine_b = {},
-        lualine_c = { { 'filename', file_status = true, path = 1 } },
+        lualine_c = {},
         lualine_x = {},
-        lualine_y = { 'filetype' },
+        lualine_y = {},
         lualine_z = {}
       },
       tabline = {},
       winbar = {
         lualine_a = {},
         lualine_b = {
-          { 'filename', file_status = true, path = 0 }
+          'copilot',
+          { 'filename', file_status = true, path = 1 }
         },
-        lualine_c = {
-        },
+        lualine_c = {},
         lualine_x = {},
         lualine_y = {},
-        lualine_z = {}
+        lualine_z = {},
       },
-      inactive_winbar = { lualine_a = {} },
+      inactive_winbar = {
+        lualine_a = {},
+        lualine_b = {
+          { 'filename', file_status = true, path = 1 }
+        },
+        lualine_z = {
+        },
+      },
       extensions = {}
     }
 
