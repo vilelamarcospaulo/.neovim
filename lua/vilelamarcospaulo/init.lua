@@ -5,7 +5,7 @@ require('vilelamarcospaulo.lazy')
 require('vilelamarcospaulo.clojure')
 require('vilelamarcospaulo.themes')
 
-vim.o.title = true
+-- vim.o.title = true
 vim.wo.number = true
 -- vim.wo.relativenumber = true
 vim.wo.numberwidth = 5
@@ -26,8 +26,8 @@ vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
 
-vim.opt.colorcolumn = "80"
-vim.opt.scrolloff = 5
+-- vim.opt.colorcolumn = "80"
+vim.opt.scrolloff = 8
 
 vim.opt.foldlevelstart = 20
 vim.opt.foldmethod = "expr"
