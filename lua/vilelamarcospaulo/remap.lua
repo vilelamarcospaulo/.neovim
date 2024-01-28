@@ -1,10 +1,10 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = ";"
 
+vim.keymap.set("t", "<C-w>", "<cmd>tabnext<CR>")
+
 -- explorer files
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<CR>")
-vim.keymap.set("n", "<localleader>e", vim.cmd.Ex)
 
 -- select all
 vim.keymap.set("n", "<C-a>", "gg<S-v>G")
