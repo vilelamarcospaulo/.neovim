@@ -13,13 +13,6 @@ vim.keymap.set("n", "<C-a>", "gg<S-v>G")
 vim.keymap.set("n", "<localleader>jf", "<cmd>%!jq .<CR>")
 
 -- jump window
-vim.keymap.set("n", "<C-1>", "<cmd>wincmd 1 w<CR>")
-vim.keymap.set("n", "<C-2>", "<cmd>wincmd 2 w<CR>")
-vim.keymap.set("n", "<C-3>", "<cmd>wincmd 3 w<CR>")
-vim.keymap.set("n", "<C-4>", "<cmd>wincmd 4 w<CR>")
-vim.keymap.set("n", "<C-5>", "<cmd>wincmd 5 w<CR>")
-vim.keymap.set("n", "<C-6>", "<cmd>wincmd 6 w<CR>")
-
 vim.keymap.set("n", "<M-1>", "<cmd>wincmd 1 w<CR>")
 vim.keymap.set("n", "<M-2>", "<cmd>wincmd 2 w<CR>")
 vim.keymap.set("n", "<M-3>", "<cmd>wincmd 3 w<CR>")
@@ -30,6 +23,7 @@ vim.keymap.set("n", "<M-6>", "<cmd>wincmd 6 w<CR>")
 -- Split window
 vim.keymap.set("n", "ss", ":split<Return>")
 vim.keymap.set("n", "sv", ":vsplit<Return>")
+vim.keymap.set("n", "sq", "<C-w>q")
 
 -- Move window
 vim.keymap.set("n", "sh", "<C-w>h")
