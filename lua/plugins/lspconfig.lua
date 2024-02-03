@@ -25,6 +25,8 @@ return {
     'hrsh7th/nvim-cmp',
     dependencies = {
       "L3MON4D3/LuaSnip",
+      'hrsh7th/cmp-nvim-lsp',
+      'kristijanhusak/vim-dadbod-completion',
     },
     config = function()
       local cmp = require('cmp')
@@ -35,7 +37,7 @@ return {
             local source_name = ({
               nvim_lsp = 'LSP',
               buffer = 'Buffer',
-            })[source]
+            })[source] or source
 
             vim_item.menu = '[' .. source_name .. ']'
 
@@ -45,7 +47,7 @@ return {
         mapping = cmp.mapping.preset.insert {
           ['<C-b>'] = cmp.mapping.scroll_docs(-4),
           ['<C-f>'] = cmp.mapping.scroll_docs(4),
-          ['<C-Space>'] = cmp.mapping.complete(),
+          ['<C-.>'] = cmp.mapping.complete(),
           ['<C-e>'] = cmp.mapping.abort(),
           ['<C-k>'] = cmp.mapping.select_prev_item(),
           ['<C-j>'] = cmp.mapping.select_next_item(),
@@ -59,6 +61,7 @@ return {
         sources = cmp.config.sources {
           { name = 'nvim_lsp' },
           { name = 'buffer' },
+          { name = "vim-dadbod-completion", max_item_count = 10 },
         },
       }
     end
