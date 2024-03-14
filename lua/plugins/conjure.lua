@@ -6,6 +6,11 @@ return {
     'clojure-vim/vim-jack-in',
   },
   config = function()
+    local conjure_eval = require('conjure.eval')
+    vim.keymap.set('n', '<localleader>cr', function()
+      conjure_eval.command("((requiring-resolve 'clojure.tools.namespace.repl/refresh-all))")
+    end)
+
     -- Disable the documentation mapping (use only LSP)
     vim.g["conjure#mapping#doc_word"] = false
 

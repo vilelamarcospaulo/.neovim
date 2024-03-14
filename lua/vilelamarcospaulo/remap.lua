@@ -1,7 +1,7 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = ";"
 
-vim.keymap.set("t", "<C-w>", "<cmd>tabnext<CR>")
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 
 -- explorer files
 vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<CR>")
