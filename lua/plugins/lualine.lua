@@ -62,7 +62,6 @@ return {
       winbar = {
         lualine_a = {},
         lualine_b = {
-          'copilot',
           { 'filename', file_status = true, path = 1 }
         },
         lualine_c = {},
