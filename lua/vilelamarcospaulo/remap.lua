@@ -21,8 +21,8 @@ vim.keymap.set("n", "<M-5>", "<cmd>wincmd 5 w<CR>")
 vim.keymap.set("n", "<M-6>", "<cmd>wincmd 6 w<CR>")
 
 -- Split window
-vim.keymap.set("n", "ss", ":split<Return>")
-vim.keymap.set("n", "sv", ":vsplit<Return>")
+vim.keymap.set("n", "ss", "<cmd>split<CR>")
+vim.keymap.set("n", "sv", "<cmd>vsplit<CR>")
 vim.keymap.set("n", "sq", "<C-w>q")
 
 -- Move window
