@@ -21,6 +21,7 @@ return {
         enable = true,
       },
       view = {
+        side = 'right',
         width = 60
       },
     }

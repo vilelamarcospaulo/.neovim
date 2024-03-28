@@ -18,7 +18,7 @@ return {
 
     require('lualine').setup {
       options = {
-        icons_enabled = true,
+        icons_enabled = false,
         theme = 'auto',
         component_separators = { '' },
         section_separators = { '' },
@@ -39,13 +39,12 @@ return {
         lualine_a = { 'mode' },
         lualine_b = { 'branch', 'diff', 'diagnostics' },
         lualine_c = {
-          'copilot',
           { 'filename', file_status = true, path = 1 }
         },
         lualine_x = {
           "require('lsp-status').status()",
           'encoding',
-          'filetype',
+          "filetype_fmt()",
         },
         lualine_y = { 'progress' },
         lualine_z = { 'location' }
@@ -62,7 +61,6 @@ return {
       winbar = {
         lualine_a = {},
         lualine_b = {
-          { 'filename', file_status = true, path = 1 }
         },
         lualine_c = {},
         lualine_x = {},
