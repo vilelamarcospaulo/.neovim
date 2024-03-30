@@ -15,6 +15,7 @@ return {
           'clojure_lsp',
           'gopls',
           'lua_ls',
+          'ocamllsp',
           'pyright',
           'tsserver',
         },
@@ -128,23 +129,6 @@ return {
         capabilities = capabilities
       }
 
-      vim.api.nvim_create_autocmd('BufWritePre', {
-        callback = function()
-          local bufnr = vim.api.nvim_get_current_buf()
-          lsp_format.format_buffer(bufnr)
-        end,
-      })
-
-      vim.api.nvim_create_autocmd('BufWritePre', {
-        pattern = '*.go',
-        callback = function()
-          vim.lsp.buf.code_action({
-            apply = true,
-            context = { only = { 'source.organizeImports' } },
-          })
-        end
-      })
-
       -- Global mappings.
       -- See `:help vim.diagnostic.*` for documentation on any of the below functions
       vim.keymap.set('n', '<space>d', vim.diagnostic.open_float)
@@ -154,16 +138,16 @@ return {
 
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('UserLspConfig', {}),
-        callback = function(ev)
+        callback = function(event)
+          local bufnr = event.buf
+          local lsp_client_id = event.data.client_id
+
           -- Enable completion triggered by <c-x><c-o>
-          vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+          vim.bo[bufnr].omnifunc = 'v:lua.vim.lsp.omnifunc'
 
           -- Buffer local mappings.
           -- See `:help vim.lsp.*` for documentation on any of the below functions
-          local opts = { buffer = ev.buf }
-          vim.keymap.set('n', '<localleader>fb', function()
-            lsp_format.format_buffer(opts.buffer)
-          end, opts)
+          local opts = { buffer = bufnr }
 
           vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
           vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
@@ -174,6 +158,51 @@ return {
           vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
           vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, opts)
           vim.keymap.set('n', 'gr', '<cmd>Telescope lsp_references show_line=false<CR>', opts)
+
+
+          local lsp_client = vim.lsp.get_client_by_id(lsp_client_id)
+          if not lsp_client then
+            return
+          end
+          local actions = {}
+          actions['document.formatting'] = lsp_client.server_capabilities.documentFormattingProvider
+
+          local codeActionsKinds = lsp_client and
+              lsp_client.server_capabilities and
+              lsp_client.server_capabilities.codeActionProvider and
+              lsp_client.server_capabilities.codeActionProvider.codeActionKinds or {}
+
+
+          -- index actions by key
+          for _k, v in pairs(codeActionsKinds) do
+            actions[v] = true
+          end
+
+
+          if actions['document.formatting'] then
+            -- print('attached formatting buf' .. bufnr .. ' to lsp client ' .. lsp_client_id)
+
+            local format_fn = function()
+              lsp_format.format_buffer(bufnr)
+            end
+
+            vim.keymap.set('n', '<localleader>fb', format_fn, opts)
+            vim.api.nvim_create_autocmd('BufWritePre', { callback = format_fn, buffer = bufnr })
+          end
+
+
+          if actions['source.organizeImports'] then
+            vim.keymap.set('n', '<leader>oi', vim.lsp.buf.code_action, opts)
+            vim.api.nvim_create_autocmd('BufWritePre', {
+              buffer = bufnr,
+              callback = function()
+                vim.lsp.buf.code_action({
+                  apply = true,
+                  context = { only = { 'source.organizeImports' } },
+                })
+              end
+            })
+          end
         end,
       })
     end
