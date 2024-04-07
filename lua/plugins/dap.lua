@@ -6,9 +6,11 @@ return {
       vim.keymap.set('n', '<localleader>dc', '<cmd>DapContinue<CR>')
     end
   },
+  { 'nvim-neotest/nvim-nio' },
   {
     'rcarriga/nvim-dap-ui',
     depends = {
+      'nvim-neotest/nvim-nio',
       'mfussenegger/nvim-dap',
     },
     config = function()

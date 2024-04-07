@@ -14,7 +14,6 @@ return {
     vim.keymap.set('n', '<leader>ht', '<CMD>Telescope colorscheme<CR>')
     vim.keymap.set('n', "<leader>fr", '<CMD>Telescope oldfiles<CR>')
     vim.keymap.set("n", "<leader>bf", "<cmd>Telescope buffers<CR>")
-    vim.keymap.set("n", "<leader>bf", "<cmd>Telescope buffers<CR>")
 
     vim.cmd "autocmd User TelescopePreviewerLoaded setlocal number"
   end

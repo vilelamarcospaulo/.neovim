@@ -4,7 +4,7 @@ vim.g.maplocalleader = ";"
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 
 -- explorer files
-vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<CR>")
+vim.keymap.set("n", "<leader>e", "<cmd>Neotree toggle<CR>")
 
 -- select all
 vim.keymap.set("n", "<C-a>", "gg<S-v>G")

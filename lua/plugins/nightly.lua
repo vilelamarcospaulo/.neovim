@@ -24,8 +24,11 @@ return {
         VertSplit            = { fg = fg, bg = darker_bg },
         WinSeparator         = { fg = light_bg, bg = background },
 
-        -- telescope
+        -- Telescope
         TelescopePreviewLine = { bg = light_bg },
+
+        -- Neotree
+        NeoTreeDirectoryName = { fg = fg },
       },
     })
   end
