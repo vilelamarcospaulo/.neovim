@@ -1,14 +1,7 @@
 return {
   {
-    'tpope/vim-fugitive',
-    dependencies = {
-      'tpope/vim-rhubarb', -- GBrowse  to GitHub
-      'lewis6991/gitsigns.nvim',
-    },
+    'lewis6991/gitsigns.nvim',
     config = function()
-      vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
-      vim.keymap.set("n", "<leader>gh", "<cmd>:0Gclog<CR>")
-
       require('gitsigns').setup {
         current_line_blame_opts = {
           virt_text = true,

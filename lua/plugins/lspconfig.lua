@@ -192,7 +192,6 @@ return {
 
 
           if actions['source.organizeImports'] then
-            vim.keymap.set('n', '<leader>oi', vim.lsp.buf.code_action, opts)
             vim.api.nvim_create_autocmd('BufWritePre', {
               buffer = bufnr,
               callback = function()
