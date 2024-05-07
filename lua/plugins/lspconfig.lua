@@ -17,6 +17,7 @@ return {
           'lua_ls',
           'ocamllsp',
           'pyright',
+          'templ',
           'tsserver',
         },
       })
@@ -123,6 +124,11 @@ return {
       lspconfig.pyright.setup {
         capabilities = capabilities,
       }
+
+      lspconfig.templ.setup {
+        capabilities = capabilities,
+      }
+      vim.filetype.add({ extension = { templ = "templ" } })
 
       lspconfig.tsserver.setup {
         cmd = { 'typescript-language-server', '--stdio' },
