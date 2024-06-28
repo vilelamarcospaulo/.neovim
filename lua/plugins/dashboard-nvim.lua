@@ -20,9 +20,9 @@ return {
         packages = { enable = false }, -- show how many plugins neovim loaded
         project = { enable = false },
         shortcut = {
-          { desc = '󰊳 Update', group = '@property', action = 'Lazy update', key = 'u' },
+          { desc = '󰊳  Update', group = '@property', action = 'Lazy update', key = 'u' },
         },
-        mru = { limit = 5, icon = ' ', label = 'Recent', cwd_only = false },
+        -- mru = { limit = 5, icon = ' ', label = 'Recent', cwd_only = false },
         footer = {
           '',
           '',
