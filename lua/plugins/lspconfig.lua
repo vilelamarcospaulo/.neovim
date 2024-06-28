@@ -163,8 +163,7 @@ return {
           vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, opts)
           vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
           vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, opts)
-          vim.keymap.set('n', 'gr', '<cmd>Telescope lsp_references show_line=false<CR>', opts)
-
+          vim.keymap.set('n', 'gr', '<cmd>FzfLua lsp_references<CR>', opts)
 
           local lsp_client = vim.lsp.get_client_by_id(lsp_client_id)
           if not lsp_client then
