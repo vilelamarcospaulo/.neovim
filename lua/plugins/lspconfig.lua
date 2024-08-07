@@ -82,6 +82,14 @@ return {
       local lspconfig = require('lspconfig')
       lspconfig.clojure_lsp.setup {
         capabilities = capabilities,
+        root_dir = function(pattern)
+          local util = require("lspconfig.util")
+          local fallback = vim.loop.cwd()
+          local patterns = { "project.clj", "deps.edn", "build.boot", "shadow-cljs.edn", ".git", "bb.edn" }
+
+          local root = util.root_pattern(patterns)(pattern)
+          return (root or fallback)
+        end
       }
 
       lspconfig.dartls.setup {
