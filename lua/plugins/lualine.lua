@@ -1,27 +1,16 @@
 return {
   'nvim-lualine/lualine.nvim',
   dependencies = {
-    'nvim-lua/lsp-status.nvim',
-    'ofseed/lualine-copilot',
+    "nvim-tree/nvim-web-devicons",
+    "meuter/lualine-so-fancy.nvim",
   },
   config = function()
-    local lsp_status = require('lsp-status')
-    lsp_status.config({
-      indicator_errors = ' E',
-      indicator_warnings = ' W',
-      indicator_info = ' i',
-      indicator_hint = ' H',
-      indicator_ok = 'LSP',
-      status_symbol = ' ',
-    })
-    lsp_status.register_progress()
-
     require('lualine').setup {
       options = {
-        icons_enabled = false,
+        icons_enabled = true,
         theme = 'auto',
-        component_separators = { '' },
         section_separators = { '' },
+        component_separators = { left = "│", right = "│" },
         disabled_filetypes = {
           statusline = {},
           winbar = {},
@@ -36,18 +25,25 @@ return {
         }
       },
       sections = {
-        lualine_a = { 'mode' },
-        lualine_b = { 'branch', 'diff', 'diagnostics' },
+        lualine_a = { { 'fancy_mode', width = 3 } },
+        lualine_b = { { 'fancy_branch' }, { 'diff' } },
         lualine_c = {
           { 'filename', file_status = true, path = 1 }
         },
         lualine_x = {
-          "require('lsp-status').status()",
-          'encoding',
-          "filetype_fmt()",
+          { "fancy_macro" },
+          {
+            "diagnostics",
+            symbols = { error = 'E', warn = 'W', info = 'I', hint = 'H' },
+            -- always_visible = true,
+          },
+          { "fancy_searchcount" },
+          { "fancy_location" },
         },
-        lualine_y = { 'progress' },
-        lualine_z = { 'location' }
+        lualine_y = {
+          { "fancy_filetype", ts_icon = '' }
+        },
+        lualine_z = {}
       },
       inactive_sections = {
         lualine_a = {},
