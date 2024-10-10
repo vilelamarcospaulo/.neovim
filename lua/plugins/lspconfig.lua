@@ -18,7 +18,7 @@ return {
           'ocamllsp',
           'pyright',
           'templ',
-          'tsserver',
+          'ts_ls',
         },
       })
     end
@@ -138,8 +138,7 @@ return {
       }
       vim.filetype.add({ extension = { templ = "templ" } })
 
-      lspconfig.tsserver.setup {
-        cmd = { 'typescript-language-server', '--stdio' },
+      lspconfig.ts_ls.setup {
         capabilities = capabilities
       }
 

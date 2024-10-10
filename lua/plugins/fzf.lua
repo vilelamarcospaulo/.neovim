@@ -15,13 +15,21 @@ return {
         cwd_prompt_shorten_len = 32, -- shorten prompt beyond this length
         cwd_prompt_shorten_val = 1,  -- shortened path parts length
       },
+      keymap   = {
+        fzf = {
+          ["ctrl-q"] = "select-all+accept",
+        },
+      },
     })
     -- fzf.register_ui_select()
 
     vim.keymap.set('n', '<leader>ff', fzf.files)
     vim.keymap.set('n', '<leader>fr', fzf.oldfiles)
 
-    vim.keymap.set('n', '<leader>ps', fzf.grep)
+    vim.keymap.set('n', '<leader>ps', function()
+      builtin.grep_string({ search = vim.fn.input('|pattern|> ') })
+    end)
+
     vim.keymap.set('n', '<leader>fw', fzf.live_grep)
     vim.keymap.set('n', '<C-f>', fzf.live_grep)
 
