@@ -25,7 +25,7 @@ return {
         }
       },
       sections = {
-        lualine_a = { { 'fancy_mode', width = 3 } },
+        lualine_a = { { 'fancy_mode', width = 10 } },
         lualine_b = { { 'fancy_branch' }, { 'diff' } },
         lualine_c = {
           { 'filename', file_status = true, path = 1 }
