@@ -29,6 +29,25 @@ return {
           }
         },
       },
+      file_size = {
+        enabled = true,
+        required_width = 60, -- min width of window required to show this column
+      },
+      type = {
+        enabled = false,
+        required_width = 120, -- min width of window required to show this column
+      },
+      last_modified = {
+        enabled = true,
+        required_width = 80, -- min width of window required to show this column
+      },
+      created = {
+        enabled = true,
+        required_width = 110, -- min width of window required to show this column
+      },
+      symlink_target = {
+        enabled = false,
+      },
       event_handlers = {
         {
           event = "file_opened",
