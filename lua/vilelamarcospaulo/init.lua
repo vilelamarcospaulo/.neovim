@@ -3,9 +3,6 @@ print("It ain’t much, but it’s honest work!")
 require('vilelamarcospaulo.remap')
 require('vilelamarcospaulo.lazy')
 require('vilelamarcospaulo.clojure')
-require('vilelamarcospaulo.themes')
-
--- vim.o.title = true
 
 vim.wo.number = true
 vim.wo.relativenumber = true
@@ -49,5 +46,7 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
       args = { 'json' }
     }, {})
   end
-
 })
+
+vim.cmd 'colorscheme nightly'
+-- vim.cmd 'set termguicolors'
