@@ -6,7 +6,6 @@ require('vilelamarcospaulo.clojure')
 require('vilelamarcospaulo.themes')
 
 -- vim.o.title = true
-vim.g.copilot_enabled = true
 
 vim.wo.number = true
 vim.wo.relativenumber = true
