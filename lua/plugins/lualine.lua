@@ -1,16 +1,28 @@
 return {
   'nvim-lualine/lualine.nvim',
   dependencies = {
-    "nvim-tree/nvim-web-devicons",
-    "meuter/lualine-so-fancy.nvim",
+    'nvim-tree/nvim-web-devicons',
+    'meuter/lualine-so-fancy.nvim',
+    'nvim-lua/lsp-status.nvim',
   },
   config = function()
+    local lsp_status = require('lsp-status')
+    lsp_status.config({
+      indicator_errors = ' E',
+      indicator_warnings = ' W',
+      indicator_info = ' i',
+      indicator_hint = ' H',
+      indicator_ok = 'LSP',
+      status_symbol = ' ',
+    })
+    lsp_status.register_progress()
+
     require('lualine').setup {
       options = {
         icons_enabled = true,
         theme = 'auto',
         section_separators = { '' },
-        component_separators = { left = "│", right = "│" },
+        component_separators = { left = '│', right = '│' },
         disabled_filetypes = {
           statusline = {},
           winbar = {},
@@ -31,17 +43,27 @@ return {
           { 'filename', file_status = true, path = 1 }
         },
         lualine_x = {
-          { "fancy_macro" },
+          { 'fancy_macro' },
           {
-            "diagnostics",
+            'diagnostics',
             symbols = { error = 'E', warn = 'W', info = 'I', hint = 'H' },
             -- always_visible = true,
           },
-          { "fancy_searchcount" },
-          { "fancy_location" },
+          { 'fancy_searchcount' },
+          { 'fancy_location' },
         },
         lualine_y = {
-          { "fancy_filetype", ts_icon = '' }
+          {
+            function()
+              local clients = vim.lsp.get_clients({ bufnr = 0 })
+              if #clients == 0 then
+                return '[No LSP]'
+              end
+
+              return lsp_status.status()
+            end,
+          },
+          { 'fancy_filetype', ts_icon = '' }
         },
         lualine_z = {}
       },
@@ -73,13 +95,5 @@ return {
       },
       extensions = {}
     }
-
-    -- refresh lualine
-    vim.cmd([[
-augroup lualine_augroup
-    autocmd!
-    autocmd User LspProgressStatusUpdated lua require("lualine").refresh()
-augroup END
-]])
   end
 }
