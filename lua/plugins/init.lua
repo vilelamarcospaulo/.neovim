@@ -12,6 +12,10 @@ return {
     'numToStr/Comment.nvim',
     config = function()
       require('Comment').setup()
+
+      local opts = {}
+      vim.api.nvim_set_keymap('n', '<C-_>', 'gcc', opts)
+      vim.api.nvim_set_keymap('v', '<C-_>', 'gc', opts)
     end
   },
 }
