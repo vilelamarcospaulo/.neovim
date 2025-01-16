@@ -1,4 +1,5 @@
 local lsp_format = require 'vilelamarcospaulo.lsp_format_marks'
+local lsp_rename = require 'vilelamarcospaulo.ui.rename_lsp'
 
 return {
   {
@@ -168,7 +169,7 @@ return {
           vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
           vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
           vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, opts)
-          vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
+          vim.keymap.set('n', '<leader>rn', lsp_rename, opts)
           vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, opts)
           vim.keymap.set('n', 'gr', '<cmd>FzfLua lsp_references<CR>', opts)
 

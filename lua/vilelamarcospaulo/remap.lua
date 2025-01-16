@@ -37,6 +37,9 @@ vim.keymap.set("n", "-", [[<cmd>vertical resize -5<cr>]])   -- make the window s
 vim.keymap.set("n", "+", [[<cmd>horizontal resize +2<cr>]]) -- make the window bigger horizontally by pressing shift and =
 vim.keymap.set("n", "_", [[<cmd>horizontal resize -2<cr>]]) -- make the window smaller horizontally by pressing shift and -
 
+-- Save current buffer
+vim.keymap.set("n", "<C-s>", "<cmd>w<CR>")
+
 -- Tab movement lines
 vim.keymap.set('v', '<Tab>', '>gv', { noremap = true, silent = true })
 vim.keymap.set('v', '<S-Tab>', '<gv', { noremap = true, silent = true })
