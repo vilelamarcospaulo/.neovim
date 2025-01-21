@@ -5,7 +5,7 @@ require('vilelamarcospaulo.lazy')
 require('vilelamarcospaulo.clojure')
 
 vim.wo.number = true
-vim.wo.relativenumber = true
+vim.wo.relativenumber = false
 vim.wo.numberwidth = 5
 vim.wo.signcolumn = "yes:2"
 vim.wo.cursorline = true
