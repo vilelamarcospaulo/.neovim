@@ -152,6 +152,7 @@ return {
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('UserLspConfig', {}),
         callback = function(event)
+          local fzf = require("fzf-lua")
           local bufnr = event.buf
           local lsp_client_id = event.data.client_id
 
@@ -162,15 +163,18 @@ return {
           -- See `:help vim.lsp.*` for documentation on any of the below functions
           local opts = { buffer = bufnr }
 
+
           vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
           vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+          vim.keymap.set('n', 'gr', fzf.lsp_references, opts)
+          vim.keymap.set('n', '<C-p>', fzf.lsp_live_workspace_symbols)
+
           vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
           vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
           vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
           vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, opts)
           vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
           vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, opts)
-          vim.keymap.set('n', 'gr', '<cmd>FzfLua lsp_references<CR>', opts)
 
           local lsp_client = vim.lsp.get_client_by_id(lsp_client_id)
           if not lsp_client then
