@@ -19,6 +19,7 @@ vim.o.shiftwidth = 2
 vim.opt.spelllang = "en_us"
 vim.opt.spell = true
 
+vim.opt.fillchars = { eob = ' ' }
 vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
