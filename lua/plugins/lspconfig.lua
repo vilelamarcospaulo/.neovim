@@ -1,5 +1,57 @@
 local lsp_format = require 'vilelamarcospaulo.lsp_format_marks'
 
+local function SetupAutoFormat(supportedActions, bufnr)
+  if not supportedActions['document.formatting'] then
+    return
+  end
+
+  vim.api.nvim_create_autocmd('BufWritePre',
+    {
+      callback = function()
+        lsp_format.format_buffer(bufnr)
+      end,
+      buffer = bufnr
+    })
+end
+
+local function SetupAutoOrganizeImports(supportedActions, bufnr)
+  if not supportedActions['source.organizeImports'] then
+    return
+  end
+
+  vim.api.nvim_create_autocmd('BufWritePre', {
+    buffer = bufnr,
+    callback = function()
+      vim.lsp.buf.code_action({
+        apply = true,
+        context = { only = { 'source.organizeImports' } },
+      })
+    end
+  })
+end
+
+local function LspClientSupportedActions(lsp_client_id)
+  local lsp_client = vim.lsp.get_client_by_id(lsp_client_id)
+  if not lsp_client then
+    return
+  end
+  local actions = {}
+  actions['document.formatting'] = lsp_client.server_capabilities.documentFormattingProvider
+
+  local codeActionsKinds = lsp_client and
+      lsp_client.server_capabilities and
+      lsp_client.server_capabilities.codeActionProvider and
+      lsp_client.server_capabilities.codeActionProvider.codeActionKinds or {}
+
+  -- index actions by key
+  for _, v in pairs(codeActionsKinds) do
+    actions[v] = true
+  end
+
+  return actions
+end
+
+
 return {
   {
     'williamboman/mason.nvim',
@@ -163,7 +215,6 @@ return {
           -- See `:help vim.lsp.*` for documentation on any of the below functions
           local opts = { buffer = bufnr }
 
-
           vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
           vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
           vim.keymap.set('n', 'gr', fzf.lsp_references, opts)
@@ -176,48 +227,10 @@ return {
           vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
           vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, opts)
 
-          local lsp_client = vim.lsp.get_client_by_id(lsp_client_id)
-          if not lsp_client then
-            return
-          end
-          local actions = {}
-          actions['document.formatting'] = lsp_client.server_capabilities.documentFormattingProvider
+          local supportedActions = LspClientSupportedActions(lsp_client_id)
 
-          local codeActionsKinds = lsp_client and
-              lsp_client.server_capabilities and
-              lsp_client.server_capabilities.codeActionProvider and
-              lsp_client.server_capabilities.codeActionProvider.codeActionKinds or {}
-
-
-          -- index actions by key
-          for _k, v in pairs(codeActionsKinds) do
-            actions[v] = true
-          end
-
-
-          if actions['document.formatting'] then
-            -- print('attached formatting buf' .. bufnr .. ' to lsp client ' .. lsp_client_id)
-
-            local format_fn = function()
-              lsp_format.format_buffer(bufnr)
-            end
-
-            vim.keymap.set('n', '<localleader>fb', format_fn, opts)
-            vim.api.nvim_create_autocmd('BufWritePre', { callback = format_fn, buffer = bufnr })
-          end
-
-
-          if actions['source.organizeImports'] then
-            vim.api.nvim_create_autocmd('BufWritePre', {
-              buffer = bufnr,
-              callback = function()
-                vim.lsp.buf.code_action({
-                  apply = true,
-                  context = { only = { 'source.organizeImports' } },
-                })
-              end
-            })
-          end
+          SetupAutoFormat(supportedActions, bufnr)
+          SetupAutoOrganizeImports(supportedActions, bufnr)
         end,
       })
     end
