@@ -1,10 +1,6 @@
 local lsp_format = require 'vilelamarcospaulo.lsp_format_marks'
 
-local function SetupAutoFormat(supportedActions, bufnr)
-  if not supportedActions['document.formatting'] then
-    return
-  end
-
+local function SetupAutoFormat(_supportedActions, bufnr)
   vim.api.nvim_create_autocmd('BufWritePre',
     {
       callback = function()
