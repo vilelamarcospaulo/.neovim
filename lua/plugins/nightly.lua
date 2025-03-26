@@ -17,6 +17,7 @@ return {
         keywords  = { italic = false },
       },
       highlights = {
+        ["@comment"] = { fg = "#FFA700" },
         FzfLuaPreviewTitle = { fg = fg, bg = darker_bg },
         FzfLuaPreviewBorder = { fg = fg, bg = darker_bg },
         FzfLuaFzfScrollbar = { fg = background, bg = background },

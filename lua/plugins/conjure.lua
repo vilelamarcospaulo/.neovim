@@ -9,6 +9,7 @@ return {
     -- Disable the documentation mapping (use only LSP)
     vim.g["conjure#mapping#doc_word"] = false
     vim.g["conjure#log#hud#enabled"] = false
+    vim.g["clojure#nrepl#connection#auto_repl#enabled"] = false
 
     -- tell Conjure to not strip ANSI sequences
     vim.cmd("let g:conjure#log#strip_ansi_escape_sequences_line_limit = 0")

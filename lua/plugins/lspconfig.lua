@@ -217,7 +217,7 @@ return {
           vim.keymap.set('n', '<C-p>', fzf.lsp_live_workspace_symbols)
 
           vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-          vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+          vim.keymap.set('n', 'gi', fzf.lsp_implementations, opts)
           vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
           vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, opts)
           vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
