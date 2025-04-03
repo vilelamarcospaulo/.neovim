@@ -4,6 +4,7 @@ return {
     'm00qek/baleia.nvim',
     'radenling/vim-dispatch-neovim',
     'clojure-vim/vim-jack-in',
+    'tpope/vim-dispatch',
   },
   config = function()
     -- Disable the documentation mapping (use only LSP)
