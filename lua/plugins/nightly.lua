@@ -4,6 +4,7 @@ local light_bg   = "#202a2e"
 local darker_bg  = "#101518"
 local limit_bg   = "#2e3d42"
 local background = "#141B1E"
+local comment_fg = "#FFA700"
 
 return {
   "vilelamarcospaulo/nightly.nvim",
@@ -17,10 +18,13 @@ return {
         keywords  = { italic = false },
       },
       highlights = {
-        ["@comment"] = { fg = "#FFA700" },
-        FzfLuaPreviewTitle = { fg = fg, bg = darker_bg },
+        ["@comment"]        = { fg = comment_fg },
+
+        MiniStarterFooter   = { fg = "#FB4934" },
+
+        FzfLuaPreviewTitle  = { fg = fg, bg = darker_bg },
         FzfLuaPreviewBorder = { fg = fg, bg = darker_bg },
-        FzfLuaFzfScrollbar = { fg = background, bg = background },
+        FzfLuaFzfScrollbar  = { fg = background, bg = background },
         -- FzfLuaFzfGutter = { fg = background, bg = background },
       },
     })

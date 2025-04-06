@@ -63,6 +63,7 @@ return {
       },
       view = {
         adaptive_size = true,
+        width = 50,
       },
       renderer = {
         add_trailing = true,

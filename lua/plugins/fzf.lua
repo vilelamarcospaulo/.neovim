@@ -37,6 +37,6 @@ return {
     vim.keymap.set('n', '<C-f>', fzf.live_grep)
 
     vim.keymap.set('n', '<leader>ht', fzf.colorschemes)
-    vim.keymap.set("n", "<leader>bf", fzf.buffers)
+    vim.keymap.set("n", "<leader>bb", fzf.buffers)
   end
 }

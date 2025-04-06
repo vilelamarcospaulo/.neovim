@@ -20,7 +20,7 @@ return {
     require('lualine').setup {
       options = {
         icons_enabled = true,
-        theme = 'auto',
+        theme = 'nightly',
         section_separators = { '' },
         component_separators = { left = '│', right = '│' },
         disabled_filetypes = {
@@ -31,9 +31,8 @@ return {
         always_divide_middle = true,
         globalstatus = false,
         refresh = {
-          statusline = 1000,
-          tabline = 1000,
-          winbar = 1000,
+          tabline = 100,
+          winbar = 100,
         }
       },
       sections = {
@@ -79,6 +78,7 @@ return {
       winbar = {
         lualine_a = {},
         lualine_b = {
+          { 'filename', file_status = false, path = 1 }
         },
         lualine_c = {},
         lualine_x = {},
