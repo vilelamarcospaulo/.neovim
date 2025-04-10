@@ -3,19 +3,8 @@ return {
   dependencies = {
     'nvim-tree/nvim-web-devicons',
     'meuter/lualine-so-fancy.nvim',
-    'nvim-lua/lsp-status.nvim',
   },
   config = function()
-    local lsp_status = require('lsp-status')
-    lsp_status.config({
-      indicator_errors = ' E',
-      indicator_warnings = ' W',
-      indicator_info = ' i',
-      indicator_hint = ' H',
-      indicator_ok = 'LSP',
-      status_symbol = ' ',
-    })
-
     require('lualine').setup {
       options = {
         icons_enabled = true,
@@ -42,15 +31,19 @@ return {
         },
         lualine_x = {
           { 'fancy_macro' },
-          {
-            'diagnostics',
-            symbols = { error = 'E', warn = 'W', info = 'I', hint = 'H' },
-            -- always_visible = true,
-          },
           { 'fancy_searchcount' },
           { 'fancy_location' },
         },
         lualine_y = {
+          {
+            "diagnostics",
+            symbols = {
+              error = ' E',
+              warn = ' W',
+              info = ' i',
+              hint = ' H',
+            },
+          },
           {
             function()
               local clients = vim.lsp.get_clients({ bufnr = 0 })
@@ -58,7 +51,7 @@ return {
                 return '[No LSP]'
               end
 
-              return lsp_status.status()
+              return clients[1].name .. '  '
             end,
           },
           { 'fancy_filetype', ts_icon = '' }
