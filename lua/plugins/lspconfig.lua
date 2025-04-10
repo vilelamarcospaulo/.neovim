@@ -18,10 +18,19 @@ local function SetupAutoOrganizeImports(supportedActions, bufnr)
   vim.api.nvim_create_autocmd('BufWritePre', {
     buffer = bufnr,
     callback = function()
-      vim.lsp.buf.code_action({
-        apply = true,
-        context = { only = { 'source.organizeImports' } },
-      })
+      local context = { source = { organizeImports = true } }
+      vim.validate { context = { context, 't', true } }
+      local params = vim.lsp.util.make_range_params(0, 'utf-8')
+      params.context = context
+
+      local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, 100)
+      if not result then return end
+
+      result = result[1].result
+      if not result then return end
+
+      edit = result[1].edit
+      vim.lsp.util.apply_workspace_edit(edit, 'utf-8')
     end
   })
 end
@@ -120,7 +129,6 @@ return {
     'neovim/nvim-lspconfig',
     dependencies = {
       'hrsh7th/cmp-nvim-lsp',
-      { 'j-hui/fidget.nvim', opts = {} },
     },
     config = function()
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
