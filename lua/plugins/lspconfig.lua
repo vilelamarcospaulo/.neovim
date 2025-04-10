@@ -120,14 +120,12 @@ return {
     'neovim/nvim-lspconfig',
     dependencies = {
       'hrsh7th/cmp-nvim-lsp',
-      'nvim-lua/lsp-status.nvim',
+      { 'j-hui/fidget.nvim', opts = {} },
     },
     config = function()
-      local lsp_status = require('lsp-status')
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
-      capabilities = vim.tbl_extend('keep', capabilities or {}, lsp_status.capabilities)
-
       local lspconfig = require('lspconfig')
+
       lspconfig.clojure_lsp.setup {
         capabilities = capabilities,
         root_dir = function(pattern)
