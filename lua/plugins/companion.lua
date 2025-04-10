@@ -4,10 +4,10 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
-    "j-hui/fidget.nvim"
+    "folke/noice.nvim",
   },
   config = function()
-    require("plugins.codecompanion.fidget-spinner"):init()
+    require("plugins.codecompanion.notification"):init()
     require("codecompanion").setup {}
 
     vim.keymap.set({ "n", "v" }, "<leader>cc", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })

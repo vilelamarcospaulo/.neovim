@@ -15,7 +15,6 @@ return {
       indicator_ok = 'LSP',
       status_symbol = ' ',
     })
-    lsp_status.register_progress()
 
     require('lualine').setup {
       options = {
