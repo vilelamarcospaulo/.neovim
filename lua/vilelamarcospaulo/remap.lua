@@ -5,7 +5,6 @@ vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 
 -- select all
 vim.keymap.set("n", "<C-a>", "gg<S-v>G")
-
 vim.keymap.set('n', '<leader>rr', ':%s//g<Left><Left>', { noremap = true, silent = false })
 
 -- json formatter
@@ -19,11 +18,11 @@ vim.keymap.set("n", "<M-4>", "<cmd>wincmd 4 w<CR>")
 vim.keymap.set("n", "<M-5>", "<cmd>wincmd 5 w<CR>")
 vim.keymap.set("n", "<M-6>", "<cmd>wincmd 6 w<CR>")
 
-
 -- Split window
 vim.keymap.set("n", "ss", "<cmd>split<CR>")
 vim.keymap.set("n", "sv", "<cmd>vsplit<CR>")
 vim.keymap.set("n", "sq", "<C-w>q")
+vim.keymap.set("n", "<C-q>", "<C-w>q")
 
 -- Move window
 vim.keymap.set("n", "sh", "<C-w>h")

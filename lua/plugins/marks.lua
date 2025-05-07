@@ -34,6 +34,6 @@ return {
       }
     }
 
-    vim.keymap.set("n", "<leader>lm", "<cmd>MarksListGlobal<CR>")
+    vim.keymap.set("n", "<leader>lm", "<cmd>FzfLua marks<CR>")
   end
 }
